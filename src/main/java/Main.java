@@ -6,12 +6,12 @@ public class Main
 
 
 
-    public static Queue<String> copyQueue(Queue<String> q) 
+    public static <T> Queue<T> copyQueue(Queue<T> q) 
     {
-        Queue<String> copy = new Queue<>();
-        Queue<String> temp = new Queue<>();
+        Queue<T> copy = new Queue<>();
+        Queue<T> temp = new Queue<>();
         while (!q.isEmpty()) {
-            String val = q.remove(); 
+            T val = q.remove(); 
             copy.insert(val);             
             temp.insert(val);
         }
@@ -54,19 +54,20 @@ public static boolean strinq(Queue<String> q, String target) {
     return found;
 }
 
-    public static Queue<Integer> ex1(Queue<String> q) 
+    public static Queue<Integer> ex1(Queue<Character> q1) 
     {
+    Queue<Integer> q = copyQueue(q1);    
     Queue<Integer> result = new Queue<>();
     
     if (q.isEmpty()) 
     {
         return result;
     }
-        String current = q.remove(); // שליפת האיבר הראשון
+        char current = q.remove(); // שליפת האיבר הראשון
         int count = 1;
         while (!q.isEmpty()) 
         {
-            String next = q.remove();
+            char next = q.remove();
             if (next == current) 
             {
                 count++;
