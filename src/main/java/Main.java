@@ -226,8 +226,46 @@ public static boolean strinq(Queue<String> q, String target) {
         }
     return maxSum;
     }
-    
-    
+    import java.util.*;
+
+
+ 
+
+    private static boolean 11(Node<Integer> tr) {
+        if (tr == null) return false;
+        if (tr.getValue() % 2 != 0) return false;
+        if (tr.getLeft() != null && tr.getLeft().getValue() % 2 != 0) return false;
+        if (tr.getRight() != null && tr.getRight().getValue() % 2 != 0) return false;
+        return true;
+    }
+
+    public static void prin(Node<Integer> tr1) {
+        if (tr1 == null) return;
+        if (isValid(tr1)) {
+            System.out.println(tr1.getValue());
+        }
+        prin(tr1.getLeft());
+        prin(tr1.getRight());
+    }
+
+    public static int howmany(Node<Integer> tr2) {
+        if (tr2 == null) return 0;
+        int count = isValid(tr2) ? 1 : 0;
+        return count + howmany(tr2.getLeft()) + howmany(tr2.getRight());
+    }
+
+    public static boolean hass(Node<Integer> tr3) {
+        if (tr3 == null) return false;
+        if (isValid(tr3)) return true;
+        return hass(tr3.getLeft()) || hass(tr3.getRight());
+    }
+
+    public static boolean allgood(Node<Integer> tr4) {
+        if (tr4 == null) return true;
+        if (!isValid(tr4)) return false;
+        return allgood(tr4.getLeft()) && allgood(tr4.getRight());
+    }
+
     
 
  Scanner reader=new Scanner(System.in);
