@@ -2,7 +2,81 @@ import java.util.*;
 public class Main
 {
 
+import java.util.*;
+public class Main
+{
 
+ 
+
+    private static int twelv(Node<Integer> tr) 
+    {
+        if (tr == null)
+        {
+            return 0;
+        }
+        if (tr.getValue()>= 10&&tr.getValue()<100)
+        {
+            return twelv(tr.getLeft()) + twelv(tr.getRight())+1;
+        }
+            return twelv(tr.getLeft()) + twelv(tr.getRight());
+    }
+
+    private static int fourteen(Node<Integer> tr1) 
+    {
+        if (tr1 == null)
+        {
+            return 0;
+        }
+        if (!tr1.hasLeft()&&!tr1.hasRight())
+        {
+            return 1;
+        }
+        return fourteen(tr1.getLeft()) + twelv(tr1.getRight());
+    }
+    
+    private static int sixteen(Node<Integer> tr2) 
+    {
+        if (tr2 == null)
+        {
+            return 0;
+        }
+        if (tr2.hasLeft()&&tr2.hasRight())
+        {
+            return sixteen(tr1.getLeft()) + sixteen(tr2.getRight()) +tr2.getValue();
+        }
+        return sixteen(tr1.getLeft()) + sixteen(tr2.getRight());
+    }
+    
+    private static int seventeen(Node<Integer> tr3) 
+    {
+        if (tr3 == null)
+        {
+            return 0;
+        }
+        if (tr3.hasLeft()&&tr3.hasRight())
+        {
+            if (!tr3.getLeft().hasLeft && !tr3.getLeft().hasRight() && !tr3.getRight().hasLeft && !tr3.getRight().hasRight())
+            {
+                return seventeen(tr3.getLeft())+seventeen(tr3.getRight());
+            }
+        }
+        return seventeen(tr3.getLeft())+seventeen(tr3.getRight())+1;
+    }
+    
+    
+    
+
+ Scanner reader=new Scanner(System.in);
+public static void main(String[] args)
+{
+   	    
+
+
+
+System.out.println(to100(q3));
+System.out.println(q3);
+}
+}
 
 
 
