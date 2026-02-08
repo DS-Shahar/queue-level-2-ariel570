@@ -7,6 +7,13 @@ public class Main
 {
 
  
+ 
+
+    import java.util.*;
+public class Main
+{
+
+ 
 
     private static int twelv(Node<Integer> tr) 
     {
@@ -62,6 +69,43 @@ public class Main
         }
         return seventeen(tr3.getLeft())+seventeen(tr3.getRight())+1;
     }
+    
+    private static boolean eightteen(Node<Integer> t1,Node<Integer> t2) 
+    {
+        if (t2==null)
+        {
+            return true;
+        }
+        if (!isin(t1,t2.getValue()))
+        {
+            return false;
+        }
+        return eightteen(t1,t2.getLeft())&&eightteen(t1,t2.getRight())
+    }
+    
+    private static boolean tweny(Node<Integer> t1,int n) 
+    {
+        if(howmany(t1)!=n)
+        {
+            return false;
+        }
+        if(t1==null)
+        {
+            return true;
+        }
+        if (t1.getValue()>n)
+        {
+            return false;
+        }
+        return tweny(t1.getLeft(),howmany(t1.getLeft())) && tweny(t1.getRigt(),howmany(t1.getRight()))
+    }
+    
+     public static int howmany(Node<Integer> tr2) {
+        if (tr2 == null) return 0;
+        
+        return 1 + howmany(tr2.getLeft()) + howmany(tr2.getRight());
+    }
+
     
     
     
